@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/group"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_instruktur"
+            android:icon="@drawable/classroom"
+            android:title="Instruktur" />
+
+        <item
+            android:id="@+id/nav_materi"
+            android:icon="@drawable/book"
+            android:title="Materi" />
+
+        <item
+            android:id="@+id/nav_peserta"
+            android:icon="@drawable/group"
+            android:title="Peserta" />
+
+        <item
+            android:id="@+id/nav_kelas"
+            android:icon="@drawable/presentation"
+            android:title="Kelas"/>
+
+        <item
+            android:id="@+id/nav_detail_kelas"
+            android:icon="@drawable/information"
+            android:title="Detail Kelas" />
+
+        <item
+            android:id="@+id/nav_pencarian"
+            android:icon="@drawable/search"
+            android:title="Pencarian"/>
+
+    </group>
+</menu>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.245" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.245" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/drawable/item_background_nav_checked.xml" value="0.1" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/drawable/nav_header_layout.xml" value="0.1" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_lihat_detail_data_instruktur.xml" value="0.1" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_lihat_detail_data_materi.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_lihat_detail_data_peserta.xml" value="0.17222222222222222" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_lihat_detail_kelas.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_tambah_instruktur.xml" value="0.2786458333333333" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_tambah_kelas.xml" value="0.264" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_tambah_materi.xml" value="0.264" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_tambah_peserta.xml" value="0.4" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/form_data_instruktur.xml" value="0.264" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_detail_kelas.xml" value="0.264" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_home.xml" value="0.2786458333333333" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_instruktur.xml" value="0.264" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_kelas.xml" value="0.4" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_materi.xml" value="0.264" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_peserta.xml" value="0.1814814814814815" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/item_list_layout_detail_kelas.xml" value="0.264" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/lihat_detail_data_peserta.xml" value="0.1265625" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/list_item_layout_instruktur.xml" value="0.2361111111111111" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/list_item_layout_kelas.xml" value="0.536" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/list_item_layout_materi.xml" value="0.2537037037037037" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/list_item_layout_peserta.xml" value="0.1265625" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/nav_header_layout.xml" value="0.4" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/menu/navigation_item.xml" value="0.1265625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
