@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -36,8 +37,8 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
         edit_id_kls = findViewById(R.id.edit_id_kls);
         edit_tgl_mulai= findViewById(R.id.edit_tgl_mulai);
         edit_tgl_selesai= findViewById(R.id.edit_tgl_selesai);
-        edit_ins_kls= findViewById(R.id.edit_ins_kls);
-        edit_mat_kls= findViewById(R.id.edit_mat_kls);
+        edit_ins_kls = findViewById(R.id.edit_ins_kls);
+        edit_mat_kls = findViewById(R.id.edit_mat_kls);
         btn_tambah_pst = findViewById(R.id.btn_tambah_kls);
         btn_batal_pst = findViewById(R.id.btn_batal_kls);
 
@@ -54,6 +55,8 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
         getJson();
 
     }
+
+
 
     private void getJson() {
         // Mengambil Data Dari Android ke Server

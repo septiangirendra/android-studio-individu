@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class DetailKelasFragment extends Fragment implements MainActivity.OnBackPressedListener {
+public class DetailKelasFragment extends Fragment implements MainActivity.OnBackPressedListener, View.OnClickListener {
 
     private FragmentDetailKelasBinding fragmentDetailKelasBinding;
     private View view;
@@ -74,7 +74,7 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
 
         // penanganan Floating Action Bar
 
-//        fragmentDetailKelasBinding.addFab.setOnClickListener(this);
+        fragmentDetailKelasBinding.addFab.setOnClickListener(this);
 
         //ambil data dari JSON
         getJsonData();
@@ -164,5 +164,10 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
         transaction.replace(R.id.frameLayout, new MateriFragment());
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    @Override
+    public void onClick(View v) {
+        startActivity(new Intent(view.getContext(), TambahDetailKelas.class));
     }
 }

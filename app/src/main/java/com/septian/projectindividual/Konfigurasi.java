@@ -27,8 +27,13 @@ public class Konfigurasi {
 
     // Detail Kelas
     public  static final String URL_GET_ALL_DTL_KLS = "http://192.168.31.103/inixtraining/tampilSemuaDetailKls.php";
+    public  static final String URL_GET_ADD_DTL_KLS = "http://192.168.31.103/inixtraining/tambahDetailKls.php";
 
-    // Untuk menampilkan data Kelas
+    // key and value json yang muncul di browser
+    public static final String KEY_DTL_KLS_ID = "id_detail_kls";
+    public static final String KEY_DTL_KLS_ID_KLS = "id_kls";
+    public static final String KEY_DTL_KLS_ID_PST = "id_pst";
+    // Untuk menampilkan data Detail Kelas
     public static final String TAG_JSON_ARRAY_DTL_KLS = "result";
     public static final String TAG_JSON_DTL_KLS = "id_detail_kls";
     public static final String TAG_JSON_KLS_DTL_KLS = "id_kls";
