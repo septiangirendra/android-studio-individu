@@ -28,6 +28,7 @@ public class Konfigurasi {
     // Detail Kelas
     public  static final String URL_GET_ALL_DTL_KLS = "http://192.168.31.103/inixtraining/tampilSemuaDetailKls.php";
     public  static final String URL_GET_ADD_DTL_KLS = "http://192.168.31.103/inixtraining/tambahDetailKls.php";
+    public  static final String URL_GET_DETAIL_DTL_KLS = "http://192.168.31.103/inixtraining/tampilDetailDetailKls.php?id=";
 
     // key and value json yang muncul di browser
     public static final String KEY_DTL_KLS_ID = "id_detail_kls";
@@ -38,7 +39,9 @@ public class Konfigurasi {
     public static final String TAG_JSON_DTL_KLS = "id_detail_kls";
     public static final String TAG_JSON_KLS_DTL_KLS = "id_kls";
     public static final String TAG_JSON_MAT_DTL_KLS = "nama_mat";
+    public static final String TAG_JSON_INS_DTL_KLS = "nama_ins";
     public static final String TAG_JSON_COUNT_DTL_KLS = "count";
+    public static final String TAG_JSON_PST_DTL_KLS = "nama_pst";
 
 
     //Kelas
@@ -105,5 +108,6 @@ public class Konfigurasi {
     public static final String MAT_ID = "id_mat";
     public static final String PST_ID = "id_pst";
     public static final String KLS_ID = "id_kls";
+    public static final String DTL_KLS_ID = "id_kls";
 
 }

@@ -61,12 +61,12 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-//                // membuka detail
-//                Intent myIntent = new Intent(PesertaFragment.this.getActivity(), LihatDetailDataPeserta.class);
-//                HashMap<String, String> map = (HashMap) parent.getItemAtPosition(position);
-//                String insId = map.get(Konfigurasi.TAG_JSON_ID_PST).toString();
-//                myIntent.putExtra(Konfigurasi.PST_ID, insId);
-//                startActivity(myIntent);
+                // membuka detail
+                Intent myIntent = new Intent(DetailKelasFragment.this.getActivity(), LihatDetailDetailKelas.class);
+                HashMap<String, String> map = (HashMap) parent.getItemAtPosition(position);
+                String dtlId = map.get(Konfigurasi.TAG_JSON_ID_KLS).toString();
+                myIntent.putExtra(Konfigurasi.DTL_KLS_ID, dtlId);
+                startActivity(myIntent);
 
 
             }

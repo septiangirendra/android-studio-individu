@@ -35,7 +35,7 @@ public class LihatDetailDataPeserta extends AppCompatActivity implements View.On
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
 
-        edit_id_pst = findViewById(R.id.edit_id_kls);
+        edit_id_pst = findViewById(R.id.edit_id_kls_dtl_dtl);
         edit_nama_pst = findViewById(R.id.tmb_nama_pst);
         edit_email_pst = findViewById(R.id.edit_email_pst);
         edit_kontak_pst = findViewById(R.id.edit_ins_kls);

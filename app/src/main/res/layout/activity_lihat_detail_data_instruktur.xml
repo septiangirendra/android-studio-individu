@@ -36,7 +36,7 @@
             android:text="ID Instruktur" />
 
         <EditText
-            android:id="@+id/edit_id_kls"
+            android:id="@+id/edit_id_kls_dtl_dtl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

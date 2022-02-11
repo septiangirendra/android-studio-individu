@@ -142,7 +142,7 @@ public class MateriFragment extends Fragment implements MainActivity.OnBackPress
         ListAdapter adapter = new SimpleAdapter(
                 view.getContext(), list, R.layout.list_item_layout_materi,
                 new String[]{Konfigurasi.TAG_JSON_ID_MAT, Konfigurasi.TAG_JSON_NAMA_MAT},
-                new int[]{R.id.txt_id_mat, R.id.txt_nama_mat}
+                new int[]{R.id.txt_id_kls_dtl, R.id.txt_nama_mat}
         );
 
         materiBinding.listView.setAdapter(adapter);

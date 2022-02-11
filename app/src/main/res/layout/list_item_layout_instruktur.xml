@@ -7,7 +7,7 @@
     android:paddingTop="30dp">
 
     <TextView
-        android:id="@+id/txt_id_mat"
+        android:id="@+id/txt_id_kls_dtl"
         android:layout_width="32dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="6dp"
@@ -18,7 +18,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/txt_nama_ins"
+        android:id="@+id/txt_nama_pst_dtl"
         android:layout_width="104dp"
         android:layout_height="wrap_content"
         android:text="TextView"

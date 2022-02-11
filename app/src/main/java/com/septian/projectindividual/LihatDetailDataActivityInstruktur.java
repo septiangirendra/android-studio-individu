@@ -16,8 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.septian.projectindividual.databinding.ActivityMainBinding;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -39,7 +37,7 @@ public class LihatDetailDataActivityInstruktur extends AppCompatActivity impleme
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
 
-        edit_id_ins = findViewById(R.id.edit_id_kls);
+        edit_id_ins = findViewById(R.id.edit_id_kls_dtl_dtl);
         edit_nama_ins = findViewById(R.id.tmb_nama_pst);
         edit_email_ins = findViewById(R.id.edit_email_pst);
         edit_kontak_ins = findViewById(R.id.edit_ins_kls);

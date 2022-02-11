@@ -10,7 +10,7 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_display_kls"
+            android:id="@+id/toolbar_display_dtl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/custom_color_1"
@@ -60,14 +60,16 @@
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Mulai" />
+            android:text="Instruktur" />
 
         <EditText
             android:id="@+id/edit_ins_dtl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:clickable="false"
             android:ems="10"
+            android:enabled="false"
             android:inputType="date"
             android:textColor="#270303"
             android:textSize="14sp"
@@ -86,7 +88,7 @@
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Selesai" />
+            android:text="Materi" />
 
         <EditText
             android:id="@+id/edit_materi_dtl"
@@ -94,6 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:enabled="false"
             android:inputType="date"
             android:textColor="#270303"
             android:textSize="14sp"
@@ -108,66 +111,18 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="378dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Instruktur" />
-
-        <Spinner
-            android:id="@+id/spinner_ins_kls_edit"
-            android:layout_width="275dp"
-            android:layout_height="wrap_content"
-            android:padding="15dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:layout_margin="8dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="10dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Materi" />
-
-        <Spinner
-            android:id="@+id/spinner_mat_kls_edit"
-            android:layout_width="277dp"
-            android:layout_height="wrap_content"
-            android:padding="15dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:clickable="false"
-        android:gravity="bottom"
-        android:orientation="horizontal"
-        android:padding="6dp">
-
-        <Button
-            android:id="@+id/btn_tambah_kls"
+            android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
             android:layout_weight="1"
-            app:backgroundTint="@color/custom_color_1"
-            android:text="Update" />
-
-        <Button
-            android:id="@+id/btn_batal_kls"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:layout_weight="1"
-            app:backgroundTint="@color/button_delete"
-            android:text="Delete" />
+            android:text="Peserta :" />
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_margin="8dp" >
+    </ListView>
 
 </LinearLayout>
