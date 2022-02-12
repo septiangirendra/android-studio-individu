@@ -19,7 +19,6 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.SimpleAdapter;
 
-import com.septian.projectindividual.databinding.FragmentInstrukturBinding;
 import com.septian.projectindividual.databinding.FragmentKelasBinding;
 
 import org.json.JSONArray;

@@ -42,6 +42,7 @@ public class Konfigurasi {
     public static final String TAG_JSON_INS_DTL_KLS = "nama_ins";
     public static final String TAG_JSON_COUNT_DTL_KLS = "count";
     public static final String TAG_JSON_PST_DTL_KLS = "nama_pst";
+    public static final String TAG_JSON_ID_PST_DTL_KLS = "id_pst";
 
 
     //Kelas

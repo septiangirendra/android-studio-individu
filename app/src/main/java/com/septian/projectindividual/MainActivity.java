@@ -3,6 +3,7 @@ package com.septian.projectindividual;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -33,13 +34,35 @@ public class MainActivity extends AppCompatActivity {
     private OnBackPressedListener onBackPressedListener;
     String myStr;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Binding
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initView();
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.search_menu, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        final Fragment[] fragments = {null};
+//        switch (item.getItemId()){
+//            case R.id.search_action:
+//                fragments[0] = new PencarianFragment();
+//                getSupportActionBar().setTitle("Search Participant");
+//                callFragment(fragments[0]);
+//                break;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+
 
     private void initView() {
         // CUSTOM Toolbar
@@ -179,11 +202,11 @@ public class MainActivity extends AppCompatActivity {
                         binding.drawer.closeDrawer(GravityCompat.START);
                         callFragment(fragment);
                         break;
-                    case R.id.nav_pencarian:
-                        fragment = new PencarianFragment();
-                        binding.drawer.closeDrawer(GravityCompat.START);
-                        callFragment(fragment);
-                        break;
+//                    case R.id.nav_pencarian:
+//                        fragment = new PencarianFragment();
+//                        binding.drawer.closeDrawer(GravityCompat.START);
+//                        callFragment(fragment);
+//                        break;
                 }
                 return true;
             }

@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/txt_nama_mat"
+            android:id="@+id/txt_id_pst_dtl"
             android:layout_width="37dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
@@ -22,7 +22,7 @@
             android:textColor="#270303" />
 
         <TextView
-            android:id="@+id/txt_id_kls_dtl"
+            android:id="@+id/txt_nama_pst_dtl_dtl"
             android:layout_width="148dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="6dp"
@@ -31,7 +31,7 @@
             android:textColor="#270303" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_dtl_pst_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -7,6 +7,7 @@
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.245" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/drawable/item_background_nav_checked.xml" value="0.1" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/drawable/nav_header_layout.xml" value="0.1" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/drawable/search_view_bg.xml" value="0.1" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_lihat_detail_data_instruktur.xml" value="0.1" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_lihat_detail_data_materi.xml" value="0.27447916666666666" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/activity_lihat_detail_data_peserta.xml" value="0.17222222222222222" />
@@ -35,9 +36,11 @@
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/list_item_layout_materi.xml" value="0.2537037037037037" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/list_item_layout_peserta.xml" value="0.1265625" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/list_item_pencarian.xml" value="0.1" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/lv_classsearch.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/lv_pencarian_kelas.xml" value="0.1" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/nav_header_layout.xml" value="0.4" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/menu/navigation_item.xml" value="0.264" />
-        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/menu/search_menu.xml" value="0.1203125" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/menu/search_menu.xml" value="0.264" />
       </map>
     </option>
   </component>

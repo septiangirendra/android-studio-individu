@@ -154,7 +154,7 @@ public class InstrukturFragment extends Fragment implements MainActivity.OnBackP
         ListAdapter adapter = new SimpleAdapter(
                 view.getContext(), list, R.layout.list_item_layout_instruktur,
                 new String[]{Konfigurasi.TAG_JSON_ID_INS, Konfigurasi.TAG_JSON_NAMA_INS, Konfigurasi.TAG_JSON_HP_INS},
-                new int[]{R.id.txt_id_kls_dtl, R.id.txt_nama_pst_dtl, R.id.txt_nohp_ins}
+                new int[]{R.id.txt_nama_pst_dtl_dtl, R.id.txt_nama_pst_dtl, R.id.txt_nohp_ins}
         );
 
         instrukturBinding.listView.setAdapter(adapter);

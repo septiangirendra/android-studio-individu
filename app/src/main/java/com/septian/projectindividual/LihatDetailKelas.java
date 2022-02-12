@@ -25,18 +25,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class LihatDetailKelas extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText edit_id_kls, edit_tgl_mulai, edit_tgl_selesai, edit_ins_kls, edit_mat_kls;
-    private String id;
+    private EditText edit_id_kls, edit_tgl_mulai, edit_tgl_selesai;
+    public String id,public_nama_ins, public_nama_mat,spinner_value_ins, spinner_value_mat,
+            JSON_STRING_INS, JSON_STRING_MAT;
     private Button btn_tambah_pst, btn_batal_pst;
     Toolbar toolbar;
     private Spinner spinner_ins_kls_edit, spinner_mat_kls_edit;
-    String id_kls,public_nama_ins, public_nama_mat,spinner_value_ins, spinner_value_mat,
-            JSON_STRING_INS, JSON_STRING_MAT;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +48,6 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
         edit_id_kls = findViewById(R.id.edit_id_kls_dtl_dtl);
         edit_tgl_mulai= findViewById(R.id.edit_ins_dtl);
         edit_tgl_selesai= findViewById(R.id.edit_materi_dtl);
-        edit_ins_kls = findViewById(R.id.edit_ins_kls);
         spinner_mat_kls_edit = findViewById(R.id.spinner_mat_kls_edit);
         spinner_ins_kls_edit = findViewById(R.id.spinner_ins_kls_edit);
         btn_tambah_pst = findViewById(R.id.btn_tambah_kls);
@@ -59,102 +56,191 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
         btn_tambah_pst.setOnClickListener(this);
         btn_batal_pst.setOnClickListener(this);
 
+
         // menerima data inten dari fragment InstrukturFragment
         Intent receiveIntent = getIntent();
         id = receiveIntent.getStringExtra(Konfigurasi.KLS_ID);
         edit_id_kls.setText(id);
 
         // mengambil data JSON
-//        getDataInstruktur();
-//        getDataMateri();
         getJson();
+        getDataInstruktur();
+        getDataMateri();
+
 
     }
 
-//    private void getDataInstruktur() {
-//
-//        //bantuan dari class AsyncTask
-//        class GetJSON extends AsyncTask<Void, Void, String> {
-//            ProgressDialog loading;
-//
-//            @Override
-//            protected void onPreExecute() {
-//                super.onPreExecute();
-//                loading = ProgressDialog.show(LihatDetailKelas.this,
-//                        "Mengambil Data", "Harap Tunggu...",
-//                        false, false);
-//            }
-//
-//            @Override
-//            protected String doInBackground(Void... voids) {
-//                HttpHandler handler = new HttpHandler();
-//                String result = handler.sendGetResponse(Konfigurasi.URL_GET_ALL);
-//
-//                return result;
-//            }
-//
-//            @Override
-//            protected void onPostExecute(String message) {
-//                super.onPostExecute(message);
-//                loading.dismiss();
-//                JSON_STRING_INS = message;
-//                Log.d("DATA JSON: ", JSON_STRING_INS);
-//
-//                spinnerInstruktur();
-//            }
-//        }
-//        GetJSON getJSON = new GetJSON();
-//        getJSON.execute();
-//
-//    }
-//
-//    private void spinnerInstruktur() {
-//
-//        JSONObject jsonObject = null;
-//        ArrayList<String> listIdIns = new ArrayList<>();
-//        ArrayList<String> listNamaIns = new ArrayList<>();
-//
-//        try {
-//            jsonObject = new JSONObject(JSON_STRING_INS);
-//            JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY);
-//            Log.d("DATA JSON: ", JSON_STRING_INS);
-////            Toast.makeText(DetailKelasDetailActivity.this, "DATA JSON Result: " + result, Toast.LENGTH_SHORT).show();
-//
-//            for (int i = 0; i < result.length(); i++) {
-//                JSONObject object = result.getJSONObject(i);
-//                String id_ins = object.getString(Konfigurasi.TAG_JSON_ID_INS);
-//                String nama_ins = object.getString(Konfigurasi.TAG_JSON_NAMA_INS);
-//                listIdIns.add(id_ins);
-//                listNamaIns.add(nama_ins);
-//            }
-////            Toast.makeText(this, "test: "+listNamaKls.toString(), Toast.LENGTH_SHORT).show();
-//
-//            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
-//                    (this, android.R.layout.simple_spinner_item, listNamaIns); //selected item will look like a spinner set from XML
-//            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//            spinner_ins_kls_edit.setAdapter(spinnerArrayAdapter);
-//
-//            spinner_ins_kls_edit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                @Override
-//                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                    spinner_value_ins = listIdIns.get(i);
-////                    Toast.makeText(DetailKelasDetailActivity.this, "True Value: "+spinner_value_kelas, Toast.LENGTH_SHORT).show();
-//                }
-//
-//                @Override
-//                public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//                }
-//            });
-//
-//            spinner_ins_kls_edit.setSelection(listNamaIns.indexOf(public_nama_ins));//set selected value in spinner
-//
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
-//
-//    }
-//
+    private void getDataMateri() {
+
+        //bantuan dari class AsyncTask
+        class GetJson extends AsyncTask<Void, Void, String> {
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(LihatDetailKelas.this,
+                        "Mengambil Data", "Harap Tunggu...",
+                        false, false);
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                HttpHandler handler = new HttpHandler();
+                String result = handler.sendGetResponse(Konfigurasi.URL_GET_ALL_MAT);
+
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(String message) {
+                super.onPostExecute(message);
+                loading.dismiss();
+                JSON_STRING_MAT = message;
+//                Log.d("DATA JSON: ", JSON_STRING_MAT);
+
+                spinnerMateri();
+            }
+        }
+        GetJson getJson = new GetJson();
+        getJson.execute();
+    }
+
+    private void spinnerMateri() {
+
+        JSONObject jsonObject = null;
+        ArrayList<String> listIdMat = new ArrayList<>();
+        ArrayList<String> listNamaMat = new ArrayList<>();
+
+        try {
+            jsonObject = new JSONObject(JSON_STRING_MAT);
+            JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY_MAT);
+//            Log.d("DATA JSON: ", JSON_STRING_MAT);
+//            Toast.makeText(DetailKelasDetailActivity.this, "DATA JSON Result: " + result, Toast.LENGTH_SHORT).show();
+
+            for (int i = 0; i < result.length(); i++) {
+                JSONObject object = result.getJSONObject(i);
+                String id_mat = object.getString(Konfigurasi.TAG_JSON_ID_MAT);
+                String nama_mat = object.getString(Konfigurasi.TAG_JSON_NAMA_MAT);
+                listIdMat.add(id_mat);
+                listNamaMat.add(nama_mat);
+            }
+//            Toast.makeText(this, "test: "+listNamaKls.toString(), Toast.LENGTH_SHORT).show();
+
+            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
+                    (this, android.R.layout.simple_spinner_item, listNamaMat); //selected item will look like a spinner set from XML
+            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner_mat_kls_edit.setAdapter(spinnerArrayAdapter);
+
+            spinner_mat_kls_edit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    spinner_value_mat = listIdMat.get(i);
+//                    Toast.makeText(DetailKelasDetailActivity.this, "True Value: "+spinner_value_kelas, Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+
+            spinner_mat_kls_edit.setSelection(listNamaMat.indexOf(public_nama_mat));//set selected value in spinner
+
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    private void getDataInstruktur() {
+
+        //bantuan dari class AsyncTask
+        class GetJson extends AsyncTask<Void, Void, String> {
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(LihatDetailKelas.this,
+                        "Mengambil Data", "Harap Tunggu...",
+                        false, false);
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                HttpHandler handler = new HttpHandler();
+                String result = handler.sendGetResponse
+                        (Konfigurasi.URL_GET_ALL);
+
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(String message) {
+                super.onPostExecute(message);
+                loading.dismiss();
+                JSON_STRING_INS = message;
+                Log.d("DATA JSON: ", JSON_STRING_INS);
+
+                spinnerInstruktur();
+            }
+        }
+        GetJson getJson = new GetJson();
+        getJson.execute();
+
+    }
+
+    private void spinnerInstruktur() {
+
+        JSONObject jsonObject = null;
+        ArrayList<String> listIdIns = new ArrayList<>();
+        ArrayList<String> listNamaIns = new ArrayList<>();
+
+        try {
+            jsonObject = new JSONObject(JSON_STRING_INS);
+            JSONArray result = jsonObject.getJSONArray
+                    (Konfigurasi.TAG_JSON_ARRAY);
+            Log.d("DATA JSON: ", JSON_STRING_INS);
+//            Toast.makeText(DetailKelasDetailActivity.this, "DATA JSON Result: " + result, Toast.LENGTH_SHORT).show();
+
+            for (int i = 0; i < result.length(); i++) {
+                JSONObject object = result.getJSONObject(i);
+                String id_ins = object.getString(Konfigurasi.TAG_JSON_ID_INS);
+                String nama_ins = object.getString(Konfigurasi.TAG_JSON_NAMA_INS);
+                listIdIns.add(id_ins);
+                listNamaIns.add(nama_ins);
+            }
+//            Toast.makeText(this, "test: "+listNamaKls.toString(), Toast.LENGTH_SHORT).show();
+
+            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
+                    (this, android.R.layout.simple_spinner_item, listNamaIns); //selected item will look like a spinner set from XML
+            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner_ins_kls_edit.setAdapter(spinnerArrayAdapter);
+
+            spinner_ins_kls_edit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    spinner_value_ins = listIdIns.get(i);
+//                    Toast.makeText(DetailKelasDetailActivity.this, "True Value: "+spinner_value_kelas, Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+
+            });
+
+            spinner_ins_kls_edit.setSelection(listNamaIns.indexOf(public_nama_ins), false);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
 
     private void getJson() {
         // Mengambil Data Dari Android ke Server
@@ -192,7 +278,7 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
 
         }
 
-        GetJson getJson = new GetJson();
+        GetJson getJson= new GetJson();
         getJson.execute();
     }
 
@@ -210,8 +296,9 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
 
             edit_tgl_mulai.setText(tgl_mulai);
             edit_tgl_selesai.setText(tgl_selesai);
-            edit_ins_kls.setText(nama_ins);
-            edit_mat_kls.setText(materi);
+            public_nama_mat = nama_ins;
+            public_nama_ins = materi;
+
         } catch (Exception ex){
             ex.printStackTrace();
         }
@@ -233,8 +320,8 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
 
         final String tgl_mulai = edit_tgl_mulai.getText().toString().trim();
         final String tgl_selesai = edit_tgl_selesai.getText().toString().trim();
-        final String ins = edit_ins_kls.getText().toString().trim();
-        final String materi = edit_mat_kls.getText().toString().trim();
+        final String ins = public_nama_mat;
+        final String materi = public_nama_ins;
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Are you sure want to update this data? " +
@@ -242,7 +329,9 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
                 "\n Tanggal Selesai: " + tgl_selesai +
                 "\n Instruktur: " + ins +
                 "\n Materi: " + materi);
-
+        alertDialogBuilder.setTitle("Delete Data");
+        alertDialogBuilder.setIcon(getResources().getDrawable(android.R.drawable.ic_delete));
+        alertDialogBuilder.setCancelable(false);
         alertDialogBuilder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
