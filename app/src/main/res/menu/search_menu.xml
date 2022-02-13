@@ -2,20 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-            <item
-                android:id="@+id/toolbar_search_peserta"
-                android:icon="@android:drawable/ic_menu_search"
-                android:title="Search Peserta"
-                app:showAsAction="never" />
-            <item
-                android:id="@+id/toolbar_search_instructor"
-                android:icon="@android:drawable/ic_menu_search"
-                android:title="Search Instruktur"
-                app:showAsAction="never" />
-            <item
-                android:id="@+id/toolbar_search_materi"
-                android:icon="@android:drawable/ic_menu_search"
-                android:title="Search Materi"
-                app:showAsAction="never" />
+    <item
+        android:id="@+id/toolbar_search_peserta"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search Peserta"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/toolbar_search_instructor"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search Instruktur"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/toolbar_search_materi"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search Materi"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/toolbar_search_materi_ikut"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search Materi Peserta"
+        app:showAsAction="never" />
 
 </menu>

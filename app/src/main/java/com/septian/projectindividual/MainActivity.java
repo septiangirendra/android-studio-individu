@@ -69,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
                 getSupportActionBar().setTitle("Search Materi");
                 callFragment(fragments[0]);
                 break;
+            case R.id.toolbar_search_materi_ikut:
+                fragments[0] = new PencarianMateriPesertaFragment();
+                getSupportActionBar().setTitle("Search Materi Peserta");
+                callFragment(fragments[0]);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class LihatDetailDetailKelas extends AppCompatActivity {
+public class LihatDetailDetailKelas extends AppCompatActivity implements View.OnClickListener {
     private EditText edit_id_kls_dtl, edit_ins_dtl, edit_materi_dtl, txt_id_pst_dtl,txt_nama_pst_dtl_dtl ;
     private String id;
     Toolbar toolbar;
@@ -38,10 +38,12 @@ public class LihatDetailDetailKelas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lihat_detail_detail_kelas);
 
-
         toolbar = findViewById(R.id.toolbar_display_dtl);
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         edit_id_kls_dtl = findViewById(R.id.edit_id_kls_dtl_dtl);
         edit_ins_dtl = findViewById(R.id.edit_ins_dtl);
@@ -54,10 +56,14 @@ public class LihatDetailDetailKelas extends AppCompatActivity {
         id = receiveIntent.getStringExtra(Konfigurasi.KLS_ID);
         edit_id_kls_dtl.setText(id);
         listView = findViewById(R.id.listView);
-        btn_dtl_pst_delete = findViewById(R.id.btn_dtl_pst_delete);
-
 
         getJson();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void getJson() {
@@ -179,6 +185,11 @@ public class LihatDetailDetailKelas extends AppCompatActivity {
         alertDialog.show();
 
 
+
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 }

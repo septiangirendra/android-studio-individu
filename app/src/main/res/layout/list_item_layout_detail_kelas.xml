@@ -30,14 +30,6 @@
             android:textAlignment="textStart"
             android:textColor="#270303" />
 
-        <Button
-            android:id="@+id/btn_dtl_pst_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="DELETE"
-            app:backgroundTint="@color/button_delete" />
-
     </LinearLayout>
 
 </LinearLayout>
