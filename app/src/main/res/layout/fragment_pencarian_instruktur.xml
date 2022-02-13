@@ -16,16 +16,16 @@
             android:padding="12dp">
 
             <EditText
-                android:id="@+id/search_nama_ins"
+                android:id="@+id/search_nama_mat_srch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Masukan Nama Peserta"
+                android:hint="Masukan Nama Instruktur"
                 android:inputType="textPersonName" />
 
             <Button
-                android:id="@+id/button_search_ins_ins"
+                android:id="@+id/button_search_mat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -34,7 +34,7 @@
         </LinearLayout>
 
         <ListView
-            android:id="@+id/listViewPencarianIns"
+            android:id="@+id/listViewPencarianMat"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

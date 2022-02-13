@@ -21,22 +21,26 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Masukan Nama Peserta"
-                android:inputType="textPersonName" />
+                android:hint="Masukan Nama Materi"
+                android:inputType="textPersonName"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/button_search_mat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Search" />
+                android:text="Search"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
         <ListView
             android:id="@+id/listViewPencarianMat"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="680dp">
+
+        </ListView>
 
         <!-- TODO: Update blank fragment layout -->
 

@@ -37,9 +37,9 @@ public class PencarianInstrukturFragment extends Fragment implements View.OnClic
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pencarian_instruktur, container, false);
-        search_nama_ins= view.findViewById(R.id.search_nama_ins);
-        listViewPencarian = view.findViewById(R.id.listViewPencarianIns);
-        button_search = view.findViewById(R.id.button_search_ins_ins);
+        search_nama_ins= view.findViewById(R.id.search_nama_mat_srch);
+        listViewPencarian = view.findViewById(R.id.listViewPencarianMat);
+        button_search = view.findViewById(R.id.button_search_mat);
         button_search.setOnClickListener(this);
         getJsonData();
         return view;
@@ -114,7 +114,7 @@ public class PencarianInstrukturFragment extends Fragment implements View.OnClic
         ListAdapter adapter = new SimpleAdapter(
                 getContext(), list, R.layout.list_hasil_pencarian_ins,
                 new String[]{"id_ins", "nama_ins", "nama_mat", "mulai", "akhir"},
-                new int[]{R.id.txt_id_ins_srch,R.id.txt_nama_ins_srch, R.id.txt_nama_mat_srch, R.id.mulai, R.id.akhir}
+                new int[]{R.id.txt_id_ins_srch,R.id.txt_nama_pst_srch, R.id.txt_nama_mat_srch, R.id.mulai, R.id.akhir}
         );
         listViewPencarian.setAdapter(adapter);
 

@@ -64,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 getSupportActionBar().setTitle("Search Instruktur");
                 callFragment(fragments[0]);
                 break;
+            case R.id.toolbar_search_materi:
+                fragments[0] = new PencarianMateriFragment();
+                getSupportActionBar().setTitle("Search Instruktur");
+                callFragment(fragments[0]);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

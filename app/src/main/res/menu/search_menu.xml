@@ -13,7 +13,7 @@
                 android:title="Search Instruktur"
                 app:showAsAction="never" />
             <item
-                android:id="@+id/toolbar_search_class"
+                android:id="@+id/toolbar_search_materi"
                 android:icon="@android:drawable/ic_menu_search"
                 android:title="Search Kelas"
                 app:showAsAction="never" />

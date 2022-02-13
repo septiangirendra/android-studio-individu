@@ -24,7 +24,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txt_nama_ins_srch"
+            android:id="@+id/txt_nama_pst_srch"
             android:layout_width="134dp"
             android:layout_height="wrap_content"
             android:text="TextView"

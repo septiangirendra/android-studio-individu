@@ -22,30 +22,30 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PencarianPesertaFragment extends Fragment implements View.OnClickListener {
+public class PencarianMateriFragment extends Fragment implements View.OnClickListener {
 
     private String JSON_STRING;
     private ProgressDialog loading;
-    private EditText search_nama_pst;
+    private EditText search_nama;
     private Button button_search;
     ListView listViewPencarian;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_pencarian_peserta, container, false);
-        search_nama_pst = view.findViewById(R.id.search_nama_mat_srch);
+        View view = inflater.inflate(R.layout.fragment_pencarian_materi, container, false);
+        search_nama = view.findViewById(R.id.search_nama_mat_srch);
         listViewPencarian = view.findViewById(R.id.listViewPencarianMat);
+        button_search = view.findViewById(R.id.button_search_mat);
         button_search.setOnClickListener(this);
         getJsonData();
         return view;
-
     }
 
     private void getJsonData() {
 
-        String nama_pst = search_nama_pst.getText().toString().trim();
+        String nama_mat = search_nama.getText().toString().trim();
         class GetJsonData extends AsyncTask<Void, Void, String> {
 
             @Override
@@ -59,7 +59,7 @@ public class PencarianPesertaFragment extends Fragment implements View.OnClickLi
             @Override
             protected String doInBackground(Void... voids) {
                 HttpHandler handler = new HttpHandler();
-                String result = handler.sendGetResponse(KonfigurasiPencarian.URL_GET_SEARCH_PESERTA,nama_pst);
+                String result = handler.sendGetResponse(KonfigurasiPencarian.URL_GET_SEARCH_MAT, nama_mat);
                 return result;
             }
 
@@ -81,24 +81,21 @@ public class PencarianPesertaFragment extends Fragment implements View.OnClickLi
 
     private void displayAllDataInstruktur() {
 
-
         JSONObject jsonObject = null;
         ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
         try {
             jsonObject = new JSONObject(JSON_STRING);
-            JSONArray jsonArray = jsonObject.getJSONArray(KonfigurasiPencarian.TAG_JSON_ARRAY_PST_SEARCH);
+            JSONArray jsonArray = jsonObject.getJSONArray(KonfigurasiPencarian.TAG_JSON_ARRAY_MAT_SEARCH);
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject object = jsonArray.getJSONObject(i);
-                String id_pst = object.getString(KonfigurasiPencarian.TAG_JSON_ID_PST_SEARCH);
-                String nama_pst = object.getString(KonfigurasiPencarian.TAG_JSON_NAMA_PST_SEARCH);
-
-
+                String materi = object.getString(KonfigurasiPencarian.TAG_JSON_NAMA_MAT_SEARCH);
+                String pst = object.getString(KonfigurasiPencarian.TAG_JSON_NAMA_PST_MAT_SEARCH);
 
                 HashMap<String, String> peserta = new HashMap<>();
-                peserta.put(KonfigurasiPencarian.TAG_JSON_ID_PST_SEARCH, id_pst);
-                peserta.put(KonfigurasiPencarian.TAG_JSON_NAMA_PST_SEARCH, nama_pst);
+                peserta.put(KonfigurasiPencarian.TAG_JSON_NAMA_MAT_SEARCH, materi);
+                peserta.put(KonfigurasiPencarian.TAG_JSON_NAMA_PST_MAT_SEARCH, pst);
 
                 list.add(peserta);
             }
@@ -107,20 +104,19 @@ public class PencarianPesertaFragment extends Fragment implements View.OnClickLi
         }
 
         ListAdapter adapter = new SimpleAdapter(
-                getContext(), list, R.layout.list_hasil_pencarian_peserta,
-                new String[]{"id_pst", "nama_pst"},
-                new int[]{R.id.txt_id_ins_srch,R.id.txt_nama_pst_srch}
+                getContext(), list, R.layout.list_hasil_pencarian_mat,
+                new String[]{"peserta"},
+                new int[]{R.id.txt_nama_pst_srch}
         );
         listViewPencarian.setAdapter(adapter);
+
     }
 
     @Override
     public void onClick(View v) {
-        
-        if (v == button_search){
+
+        if (v == button_search) {
             getJsonData();
         }
-
     }
-
 }
