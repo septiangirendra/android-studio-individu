@@ -27,10 +27,12 @@
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_kelas.xml" value="0.4" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_materi.xml" value="0.264" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_pencarian.xml" value="0.2786458333333333" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_pencarian_instruktur.xml" value="0.27447916666666666" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_pencarian_peserta.xml" value="0.2212962962962963" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/fragment_peserta.xml" value="0.1814814814814815" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/item_list_layout_detail_kelas.xml" value="0.264" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/lihat_detail_data_peserta.xml" value="0.1265625" />
+        <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/list_hasil_pencarian_ins.xml" value="0.264" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/list_hasil_pencarian_peserta.xml" value="0.1" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/list_item_layout_detail_kelas.xml" value="0.264" />
         <entry key="..\:/Android-Maybank/projectindividu/app/src/main/res/layout/list_item_layout_instruktur.xml" value="0.2361111111111111" />

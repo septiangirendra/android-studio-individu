@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 getSupportActionBar().setTitle("Search Peserta");
                 callFragment(fragments[0]);
                 break;
+            case R.id.toolbar_search_instructor:
+                fragments[0] = new PencarianInstrukturFragment();
+                getSupportActionBar().setTitle("Search Instruktur");
+                callFragment(fragments[0]);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

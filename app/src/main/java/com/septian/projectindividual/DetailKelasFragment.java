@@ -146,7 +146,7 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
         ListAdapter adapter = new SimpleAdapter(
                 view.getContext(), list, R.layout.item_list_layout_detail_kelas,
                 new String[]{Konfigurasi.TAG_JSON_KLS_DTL_KLS, Konfigurasi.TAG_JSON_MAT_DTL_KLS, Konfigurasi.TAG_JSON_COUNT_DTL_KLS},
-                new int[]{R.id.txt_dtl_kls, R.id.txt_nama_pst, R.id.txt_count}
+                new int[]{R.id.txt_id_ins_srch, R.id.txt_nama_ins_srch, R.id.txt_count}
         );
 
         fragmentDetailKelasBinding.listView.setAdapter(adapter);

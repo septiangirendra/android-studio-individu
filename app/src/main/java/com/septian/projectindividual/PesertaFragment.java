@@ -146,7 +146,7 @@ public class PesertaFragment extends Fragment implements MainActivity.OnBackPres
         ListAdapter adapter = new SimpleAdapter(
                 view.getContext(), list, R.layout.list_item_layout_peserta,
                 new String[]{Konfigurasi.TAG_JSON_ID_PST, Konfigurasi.TAG_JSON_NAMA_PST, Konfigurasi.TAG_JSON_HP_PST},
-                new int[]{R.id.txt_dtl_kls, R.id.txt_nama_pst, R.id.txt_count}
+                new int[]{R.id.txt_id_ins_srch, R.id.txt_nama_ins_srch, R.id.txt_count}
         );
         pesertaBinding.listView.setAdapter(adapter);
     }
