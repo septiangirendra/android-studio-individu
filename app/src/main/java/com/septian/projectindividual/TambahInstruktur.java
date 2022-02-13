@@ -22,6 +22,7 @@ public class TambahInstruktur extends AppCompatActivity implements View.OnClickL
     private EditText tmb_nama_ins, tmb_email_ins, tmb_kontak_ins;
     private Button btn_tambah_ins, btn_batal_ins;
     Toolbar toolbar;
+    boolean isAllFieldsChecked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,16 +65,6 @@ public class TambahInstruktur extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    // batal tambah data
-    private void clearTextIns() {
-        tmb_nama_ins.setText("");
-        tmb_email_ins.setText("");
-        tmb_kontak_ins.setText("");
-        //untuk pointer langsung menuju kolom nama di layout
-        tmb_nama_ins.requestFocus();
-    }
-
-
     private void confirmDataInstruktur() {
         final String nama = tmb_nama_ins.getText().toString().trim();
         final String email = tmb_email_ins.getText().toString().trim();
@@ -93,12 +84,35 @@ public class TambahInstruktur extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                tambahDataInstruktur();
+                isAllFieldsChecked = CheckAllFields();
             }
         });
 
         AlertDialog dialog = builder.create();
         dialog.show();
+
+    }
+
+
+    // Validasi form
+    private boolean CheckAllFields() {
+
+        if (tmb_nama_ins.length() == 0) {
+            tmb_nama_ins.setError("This field is required");
+            return false;
+        }else if (tmb_email_ins.length() == 0) {
+            tmb_email_ins.setError("Email is required");
+            return false;
+        }else if (tmb_kontak_ins.length() == 0) {
+            tmb_kontak_ins.setError("This field is required");
+            return false;
+        }else {
+            tambahDataInstruktur();
+        }
+
+
+        // after all validation return true.
+        return true;
 
     }
 

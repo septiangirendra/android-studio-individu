@@ -23,6 +23,7 @@ public class TambahMateri extends AppCompatActivity implements View.OnClickListe
     private EditText tmb_nama_mat;
     private Button btn_tambah_mat, btn_batal_mat;
     Toolbar toolbar;
+    boolean isAllFieldsChecked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class TambahMateri extends AppCompatActivity implements View.OnClickListe
         toolbar = findViewById(R.id.toolbar_kls);
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         // inisialisasi variabel atau pengenalan variabel ke layout
         tmb_nama_mat = findViewById(R.id.tmb_nama_pst);
@@ -41,6 +44,12 @@ public class TambahMateri extends AppCompatActivity implements View.OnClickListe
         btn_tambah_mat.setOnClickListener(this);
         btn_batal_mat.setOnClickListener(this);
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     @Override
@@ -68,7 +77,8 @@ public class TambahMateri extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
-                    tambahMateri();
+                    isAllFieldsChecked = CheckAllFields();
+
                 }
             });
 
@@ -76,6 +86,20 @@ public class TambahMateri extends AppCompatActivity implements View.OnClickListe
             dialog.show();
 
         }
+
+    private boolean CheckAllFields() {
+
+        if (tmb_nama_mat.length() == 0) {
+            tmb_nama_mat.setError("This field is required");
+            return false;
+        }else {
+            tambahMateri();
+        }
+
+        // after all validation return true.
+        return true;
+    }
+
 
     private void tambahMateri() {
 

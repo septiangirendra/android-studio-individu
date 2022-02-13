@@ -22,6 +22,7 @@ public class TambahPeserta extends AppCompatActivity implements View.OnClickList
     private EditText tmb_nama_pst, tmb_email_pst, tmb_kontak_pst;
     private Button btn_tambah_pst, btn_batal_pst;
     Toolbar toolbar;
+    boolean isAllFieldsChecked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +84,7 @@ public class TambahPeserta extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                tambahDataPeserta();
+                isAllFieldsChecked = CheckAllFields();
             }
         });
 
@@ -91,6 +92,26 @@ public class TambahPeserta extends AppCompatActivity implements View.OnClickList
         dialog.show();
 
     }
+
+    private boolean CheckAllFields() {
+
+        if (tmb_nama_pst.length() == 0) {
+            tmb_nama_pst.setError("This field is required");
+            return false;
+        }else if (tmb_email_pst.length() == 0) {
+            tmb_email_pst.setError("Email is required");
+            return false;
+        }else if (tmb_kontak_pst.length() == 0) {
+            tmb_kontak_pst.setError("This field is required");
+            return false;
+        }else {
+            tambahDataPeserta();
+        }
+
+        // after all validation return true.
+        return true;
+    }
+
 
     private void tambahDataPeserta() {
 

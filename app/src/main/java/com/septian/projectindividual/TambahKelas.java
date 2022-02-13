@@ -40,7 +40,8 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
     Toolbar toolbar;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormat;
-
+    boolean isAllFieldsChecked = false;
+    private int spin=0;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -109,7 +110,7 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
                 edit_tgl_selesai_kls.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
             }
 
-        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
 
 
         datePickerDialog.show();
@@ -130,7 +131,7 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
                 edit_tgl_mulai_kls.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
             }
 
-        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
 
 
         datePickerDialog.show();
@@ -208,6 +209,7 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
 
                 @Override
                 public void onNothingSelected(AdapterView<?> adapterView) {
+
 
                 }
             });
@@ -291,6 +293,8 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
                 @Override
                 public void onNothingSelected(AdapterView<?> adapterView) {
 
+
+
                 }
             });
 
@@ -332,13 +336,35 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                simpanDataKelas();
+
+                isAllFieldsChecked = CheckAllFields();
+
             }
         });
         AlertDialog dialog = builder.create();
         dialog.show();
 
     }
+
+    private boolean CheckAllFields() {
+
+        if (edit_tgl_mulai_kls.length() == 0) {
+            edit_tgl_mulai_kls.setError("This field is required");
+            return false;
+        }
+
+        else if (edit_tgl_selesai_kls.length() == 0) {
+            edit_tgl_selesai_kls.setError("This field is required");
+            return false;
+        }else {
+            simpanDataKelas();
+        }
+
+        // after all validation return true.
+        return true;
+    }
+
+
 
     private void simpanDataKelas() {
 
