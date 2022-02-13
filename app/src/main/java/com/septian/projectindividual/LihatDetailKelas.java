@@ -1,5 +1,6 @@
 package com.septian.projectindividual;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,6 +12,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -163,6 +165,7 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
                 return result;
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.Q)
             @Override
             protected void onPostExecute(String message) {
                 super.onPostExecute(message);
@@ -177,6 +180,7 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
         getJson.execute();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     private void spinnerMateri() {
 
         JSONObject jsonObject = null;
@@ -216,8 +220,7 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
                 }
             });
 
-            spinner_mat_kls_edit.setSelection(listNamaMat.indexOf(public_nama_mat),false);//set selected value in spinner
-
+            spinner_mat_kls_edit.setSelection(listNamaMat.indexOf(public_nama_ins), spinner_ins_kls_edit.isForceDarkAllowed());//set selected value in spinner
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -248,6 +251,7 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
                 return result;
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.Q)
             @Override
             protected void onPostExecute(String message) {
                 super.onPostExecute(message);
@@ -263,6 +267,7 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     private void spinnerInstruktur() {
 
         JSONObject jsonObject = null;
@@ -304,7 +309,7 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
 
             });
 
-            spinner_ins_kls_edit.setSelection(listNamaIns.indexOf(public_nama_ins), false);
+            spinner_ins_kls_edit.setSelection(listNamaIns.indexOf(public_nama_mat), spinner_ins_kls_edit.isForceDarkAllowed());//set selected value in spinner
 
         } catch (Exception ex) {
             ex.printStackTrace();
