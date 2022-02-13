@@ -101,13 +101,13 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
         datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
             @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            public void onDateSet(DatePicker view, int year, int month, int day) {
 
                 Calendar newDate = Calendar.getInstance();
-                newDate.set(year, monthOfYear, dayOfMonth);
+                newDate.set(year, month, day);
 
                 //txt_date.setText("Tanggal dipilih : "+dateFormatter.format(newDate.getTime()).toString());
-                edit_tgl_selesai_kls.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+                edit_tgl_selesai_kls.setText(year + "-" + month + "-" + day);
             }
 
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -122,13 +122,13 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
         datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
             @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            public void onDateSet(DatePicker view, int year, int month, int day) {
 
                 Calendar newDate = Calendar.getInstance();
-                newDate.set(year, monthOfYear, dayOfMonth);
+                newDate.set(year, month, day);
 
                 //txt_date.setText("Tanggal dipilih : "+dateFormatter.format(newDate.getTime()).toString());
-                edit_tgl_mulai_kls.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+                edit_tgl_mulai_kls.setText(year + "-" + month + "-" + day);
             }
 
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
