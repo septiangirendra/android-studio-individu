@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -25,6 +26,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LihatDetailKelas extends AppCompatActivity implements View.OnClickListener {
@@ -35,6 +39,7 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
     private Button btn_tambah_pst, btn_batal_pst;
     Toolbar toolbar;
     private Spinner spinner_ins_kls_edit, spinner_mat_kls_edit;
+    private DatePickerDialog datePickerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,8 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
         toolbar = findViewById(R.id.toolbar_display_kls);
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         edit_id_kls = findViewById(R.id.edit_id_kls_dtl_dtl);
         edit_tgl_mulai= findViewById(R.id.edit_ins_dtl);
@@ -56,6 +63,19 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
         btn_tambah_pst.setOnClickListener(this);
         btn_batal_pst.setOnClickListener(this);
 
+        edit_tgl_mulai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mulai();
+            }
+        });
+
+        edit_tgl_selesai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selesai();
+            }
+        });
 
         // menerima data inten dari fragment InstrukturFragment
         Intent receiveIntent = getIntent();
@@ -67,6 +87,57 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
         getDataInstruktur();
         getDataMateri();
 
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    private void selesai() {
+
+        Calendar newCalendar = Calendar.getInstance();
+
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+
+                //txt_date.setText("Tanggal dipilih : "+dateFormatter.format(newDate.getTime()).toString());
+                edit_tgl_selesai.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+            }
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+
+        datePickerDialog.show();
+    }
+
+    private void mulai() {
+
+        Calendar newCalendar = Calendar.getInstance();
+
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+
+                //txt_date.setText("Tanggal dipilih : "+dateFormatter.format(newDate.getTime()).toString());
+                edit_tgl_mulai.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+            }
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+
+        datePickerDialog.show();
 
     }
 
@@ -145,7 +216,7 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
                 }
             });
 
-            spinner_mat_kls_edit.setSelection(listNamaMat.indexOf(public_nama_mat));//set selected value in spinner
+            spinner_mat_kls_edit.setSelection(listNamaMat.indexOf(public_nama_mat),false);//set selected value in spinner
 
 
         } catch (Exception ex) {
@@ -308,11 +379,95 @@ public class LihatDetailKelas extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v == btn_tambah_pst){
-//            confirmTambahKelas();
+            confirmTambahKelas();
         }else if (v == btn_batal_pst){
             confirmDeleteKelas();
         }
             
+    }
+
+    private void confirmTambahKelas() {
+
+        // variable data pegawai yang akan diubah
+        final String tgl_mulai = edit_tgl_mulai.getText().toString().trim();
+        final String tgl_akhir = edit_tgl_selesai.getText().toString().trim();
+        final String id_ins_kls = spinner_value_ins;
+        final String id_mat_kls = spinner_value_mat;
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Are you sure want to update this data? " +
+                "\n Mulai: " + tgl_mulai +
+                "\n Selesai: " + tgl_akhir +
+                "\n ID Ins: " + id_ins_kls+
+                "\n ID Mat: " + id_mat_kls);
+        alertDialogBuilder.setPositiveButton("SUBMIT", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                updatePeserta();
+
+            }
+        });
+
+        alertDialogBuilder.setNegativeButton("TIDAK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Tidak Ngapa2in
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+
+    }
+
+    private void updatePeserta() {
+        // variable data pegawai yang akan diubah
+        final String tgl_mulai = edit_tgl_mulai.getText().toString().trim();
+        final String tgl_akhir = edit_tgl_selesai.getText().toString().trim();
+        final String id_ins_kls = spinner_value_ins;
+        final String id_mat_kls = spinner_value_mat;
+
+        class UpdateDataKelas extends AsyncTask<Void,Void,String>{
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(LihatDetailKelas.this,
+                        "Mengubah Data","Harap Tunggu",
+                        false,false);
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                HashMap<String,String> params = new HashMap<>();
+                params.put(Konfigurasi.KEY_KLS_ID,id);
+                params.put(Konfigurasi.KEY_KLS_MULAI,tgl_mulai);
+                params.put(Konfigurasi.KEY_KLS_SELESAI,tgl_akhir);
+                params.put(Konfigurasi.KEY_ID_INS_KLS,id_ins_kls);
+                params.put(Konfigurasi.KEY_ID_MAT_KLS,id_mat_kls);
+                HttpHandler handler = new HttpHandler();
+                String result = handler.sendPostRequest(Konfigurasi.URL_GET_UPDATE_KLS, params);
+
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();;
+                Toast.makeText(LihatDetailKelas.this,
+                        "" + s, Toast.LENGTH_LONG).show();
+                Intent myIntent = new Intent(LihatDetailKelas.this, MainActivity.class);
+                myIntent.putExtra("keyName", "kelas");
+                startActivity(myIntent);
+
+            }
+        }
+
+        UpdateDataKelas updateDataKelas = new UpdateDataKelas();
+        updateDataKelas.execute();
+
     }
 
 

@@ -50,6 +50,7 @@ public class Konfigurasi {
     public  static final String URL_GET_DETAIL_KLS = "http://192.168.31.103/inixtraining/tampilDetailKls.php?id=";
     public  static final String URL_GET_DELETE_KLS = "http://192.168.31.103/inixtraining/hapusKls.php?id=";
     public  static final String URL_GET_ADD_KLS = "http://192.168.31.103/inixtraining/tambahKls.php";
+    public  static final String URL_GET_UPDATE_KLS = "http://192.168.31.103/inixtraining/updateKls.php?id_kls=";
     // Untuk menampilkan data Kelas
     public static final String TAG_JSON_ARRAY_KLS = "result";
     public static final String TAG_JSON_ID_KLS = "id_kls";
