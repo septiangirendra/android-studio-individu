@@ -256,7 +256,7 @@ public class LihatDetailDataActivityInstruktur extends AppCompatActivity impleme
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(LihatDetailDataActivityInstruktur.this, "Hapus" + s,
+                Toast.makeText(LihatDetailDataActivityInstruktur.this, "" + s,
                         Toast.LENGTH_SHORT).show();
 
                 Intent myIntent = new Intent(LihatDetailDataActivityInstruktur.this, MainActivity.class);

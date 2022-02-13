@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.toolbar_search_materi:
                 fragments[0] = new PencarianMateriFragment();
-                getSupportActionBar().setTitle("Search Instruktur");
+                getSupportActionBar().setTitle("Search Materi");
                 callFragment(fragments[0]);
                 break;
         }

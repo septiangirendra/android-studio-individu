@@ -33,10 +33,5 @@
             android:icon="@drawable/information"
             android:title="Detail Kelas" />
 
-        <item
-            android:id="@+id/nav_pencarian"
-            android:icon="@drawable/search"
-            android:title="Pencarian"/>
-
     </group>
 </menu>

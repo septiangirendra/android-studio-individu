@@ -1,19 +1,24 @@
 package com.septian.projectindividual;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -22,6 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class TambahKelas extends AppCompatActivity implements View.OnClickListener {
@@ -32,8 +38,12 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
     private int spinner_value_mat, spinner_value_ins;
     private String JSON_STRING;
     Toolbar toolbar;
+    DatePickerDialog datePickerDialog;
+    SimpleDateFormat dateFormat;
 
 
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +53,8 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
         toolbar = findViewById(R.id.toolbar_kls);
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         edit_tgl_mulai_kls = findViewById(R.id.edit_tgl_mulai_kls);
         edit_tgl_selesai_kls = findViewById(R.id.edit_tgl_selesai_kls);
@@ -51,12 +63,77 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
         spinner_ins_kls = findViewById(R.id.spinner_nama_kls);
         spinner_mat_kls = findViewById(R.id.spinner_nama_pst);
 
+        dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+
+        // Tanggal Picker
+        edit_tgl_mulai_kls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mulai();
+            }
+        });
+
+        edit_tgl_selesai_kls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selesai();
+            }
+        });
+
         // mengambil data untuk ditampilkan dispinner
         getDataIns();
         getDataMat();
 
         btn_tambah_kls.setOnClickListener(this);
         btn_batal_kls.setOnClickListener(this);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    private void selesai() {
+        Calendar newCalendar = Calendar.getInstance();
+
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+
+                //txt_date.setText("Tanggal dipilih : "+dateFormatter.format(newDate.getTime()).toString());
+                edit_tgl_selesai_kls.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+            }
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+
+        datePickerDialog.show();
+    }
+
+    private void mulai() {
+        Calendar newCalendar = Calendar.getInstance();
+
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+
+                //txt_date.setText("Tanggal dipilih : "+dateFormatter.format(newDate.getTime()).toString());
+                edit_tgl_mulai_kls.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+            }
+
+        },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+
+        datePickerDialog.show();
     }
 
     private void getDataMat() {

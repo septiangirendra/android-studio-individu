@@ -179,7 +179,7 @@ public class LihatDetailDataMateri extends AppCompatActivity implements View.OnC
                 super.onPostExecute(s);
                 loading.dismiss();
 
-                Toast.makeText(LihatDetailDataMateri.this, "s" + s, Toast.LENGTH_SHORT).show();
+                Toast.makeText(LihatDetailDataMateri.this, "" + s, Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(LihatDetailDataMateri.this, MainActivity.class);
                 myIntent.putExtra("keyName", "materi");
                 startActivity(myIntent);
@@ -241,7 +241,7 @@ public class LihatDetailDataMateri extends AppCompatActivity implements View.OnC
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(LihatDetailDataMateri.this, "Hapus" + s,
+                Toast.makeText(LihatDetailDataMateri.this, "" + s,
                         Toast.LENGTH_SHORT).show();
 
                 Intent myIntent = new Intent(LihatDetailDataMateri.this, MainActivity.class);

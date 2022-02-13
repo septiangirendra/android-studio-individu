@@ -15,7 +15,7 @@
             <item
                 android:id="@+id/toolbar_search_materi"
                 android:icon="@android:drawable/ic_menu_search"
-                android:title="Search Kelas"
+                android:title="Search Materi"
                 app:showAsAction="never" />
 
 </menu>
