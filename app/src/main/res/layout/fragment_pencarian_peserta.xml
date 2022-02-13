@@ -29,7 +29,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Search" />
+                android:text="Search"
+                app:backgroundTint="@color/custom_color_2"/>
 
         </LinearLayout>
 
