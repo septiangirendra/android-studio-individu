@@ -74,7 +74,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:layout_weight="1"
-            android:text="Batal" />
+            android:text="Batal"
+            app:backgroundTint="@color/custom_batal"/>
     </LinearLayout>
 
 </LinearLayout>

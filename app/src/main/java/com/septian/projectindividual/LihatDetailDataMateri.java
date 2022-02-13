@@ -34,6 +34,8 @@ public class LihatDetailDataMateri extends AppCompatActivity implements View.OnC
         toolbar = findViewById(R.id.toolbar_kls);
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         edit_id_mat = findViewById(R.id.edit_id_mat);
         edit_nama_mat = findViewById(R.id.edit_nama_mat);
@@ -52,6 +54,12 @@ public class LihatDetailDataMateri extends AppCompatActivity implements View.OnC
         // mengambil data JSON
         getJson();
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void getJson() {

@@ -36,6 +36,8 @@ public class LihatDetailDataActivityInstruktur extends AppCompatActivity impleme
         toolbar = findViewById(R.id.toolbar_kls);
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         edit_id_ins = findViewById(R.id.edit_id_kls_dtl_dtl);
         edit_nama_ins = findViewById(R.id.tmb_nama_pst);
@@ -55,6 +57,12 @@ public class LihatDetailDataActivityInstruktur extends AppCompatActivity impleme
 
         // mengambil data JSON
         getJson();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void getJson() {

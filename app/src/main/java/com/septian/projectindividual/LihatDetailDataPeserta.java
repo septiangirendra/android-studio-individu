@@ -34,6 +34,8 @@ public class LihatDetailDataPeserta extends AppCompatActivity implements View.On
         toolbar = findViewById(R.id.toolbar_kls);
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         edit_id_pst = findViewById(R.id.edit_id_kls_dtl_dtl);
         edit_nama_pst = findViewById(R.id.tmb_nama_pst);
@@ -53,6 +55,12 @@ public class LihatDetailDataPeserta extends AppCompatActivity implements View.On
 
         // mengambil data JSON
         getJson();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void getJson() {

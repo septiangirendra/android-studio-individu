@@ -37,6 +37,7 @@ public class PencarianPesertaFragment extends Fragment implements View.OnClickLi
         View view = inflater.inflate(R.layout.fragment_pencarian_peserta, container, false);
         search_nama_pst = view.findViewById(R.id.search_nama_mat_srch);
         listViewPencarian = view.findViewById(R.id.listViewPencarianMat);
+        button_search = view.findViewById(R.id.button_search_mat);
         button_search.setOnClickListener(this);
         getJsonData();
         return view;

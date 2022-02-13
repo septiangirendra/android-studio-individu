@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:background="@color/custom_color_1"
             android:minHeight="?attr/actionBarSize"
-            app:title="Detail Data Instruktur"
+            app:title="Detail Data Peserta"
             app:titleMarginStart="34dp"
             app:titleTextColor="@color/white" />
 

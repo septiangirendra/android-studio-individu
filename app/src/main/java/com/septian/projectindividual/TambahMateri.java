@@ -32,7 +32,8 @@ public class TambahMateri extends AppCompatActivity implements View.OnClickListe
         toolbar = findViewById(R.id.toolbar_kls);
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         // inisialisasi variabel atau pengenalan variabel ke layout
         tmb_nama_mat = findViewById(R.id.tmb_nama_pst);
         btn_tambah_mat = findViewById(R.id.btn_tambah_kls);
@@ -41,6 +42,12 @@ public class TambahMateri extends AppCompatActivity implements View.OnClickListe
         btn_tambah_mat.setOnClickListener(this);
         btn_batal_mat.setOnClickListener(this);
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     @Override

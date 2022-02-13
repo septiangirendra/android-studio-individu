@@ -31,6 +31,9 @@ public class TambahPeserta extends AppCompatActivity implements View.OnClickList
         toolbar = findViewById(R.id.toolbar_kls);
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         // inisialisasi variabel atau pengenalan variabel ke layout
         tmb_nama_pst = findViewById(R.id.tmb_nama_pst);
@@ -42,6 +45,12 @@ public class TambahPeserta extends AppCompatActivity implements View.OnClickList
         btn_tambah_pst.setOnClickListener(this);
         btn_batal_pst.setOnClickListener(this);
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     @Override

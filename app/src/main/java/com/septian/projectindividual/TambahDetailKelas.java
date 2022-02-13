@@ -1,6 +1,7 @@
 package com.septian.projectindividual;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -28,13 +29,19 @@ public class TambahDetailKelas extends AppCompatActivity implements View.OnClick
     private Spinner spinner_nama_kls,spinner_nama_pst;
     private int spinner_value, spinner_value_kelas;
     private String JSON_STRING, JSON_STRING_KLS;
+    Toolbar toolbar;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_detail_kelas);
-        
+        toolbar = findViewById(R.id.toolbar_kls);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         btn_tambah_kls = findViewById(R.id.btn_tambah_kls);
         btn_batal_kls = findViewById(R.id.btn_batal_kls);
         spinner_nama_kls = findViewById(R.id.spinner_nama_kls);
@@ -47,6 +54,12 @@ public class TambahDetailKelas extends AppCompatActivity implements View.OnClick
         getDataPeserta();
         
         
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void getDataPeserta() {
@@ -176,7 +189,6 @@ public class TambahDetailKelas extends AppCompatActivity implements View.OnClick
             jsonObject = new JSONObject(JSON_STRING_KLS);
             JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY_KLS);
             Log.d("DATA JSON: ", JSON_STRING_KLS);
-            Toast.makeText(TambahDetailKelas.this, "DATA JSON Result: " + result, Toast.LENGTH_SHORT).show();
 
             for (int i = 0; i < result.length(); i++) {
                 JSONObject object = result.getJSONObject(i);
@@ -185,7 +197,6 @@ public class TambahDetailKelas extends AppCompatActivity implements View.OnClick
                 listIdKls.add(id_kls);
                 listNamaKls.add(nama_kls);
             }
-            Toast.makeText(this, "test: "+listNamaKls.toString(), Toast.LENGTH_SHORT).show();
 
             ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
                     (this, android.R.layout.simple_spinner_item,listNamaKls); //selected item will look like a spinner set from XML
@@ -196,7 +207,6 @@ public class TambahDetailKelas extends AppCompatActivity implements View.OnClick
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     spinner_value_kelas = Integer.parseInt(listIdKls.get(i));
-                    Toast.makeText(TambahDetailKelas.this, "True Value: "+spinner_value_kelas, Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -287,7 +297,7 @@ public class TambahDetailKelas extends AppCompatActivity implements View.OnClick
             protected void onPostExecute(String message) {
                 super.onPostExecute(message);
                 loading.dismiss();
-                Toast.makeText(TambahDetailKelas.this, "pesan: " + message,
+                Toast.makeText(TambahDetailKelas.this, "" + message,
                         Toast.LENGTH_SHORT).show();
 //                clearText();
                 Intent myIntent = new Intent(TambahDetailKelas.this, MainActivity.class);

@@ -32,6 +32,8 @@ public class TambahInstruktur extends AppCompatActivity implements View.OnClickL
         toolbar = findViewById(R.id.toolbar_kls);
         // khusus toolbar event handling
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         // inisialisasi variabel atau pengenalan variabel ke layout
         tmb_nama_ins = findViewById(R.id.tmb_nama_pst);
@@ -43,6 +45,12 @@ public class TambahInstruktur extends AppCompatActivity implements View.OnClickL
         btn_tambah_ins.setOnClickListener(this);
         btn_batal_ins.setOnClickListener(this);
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     @Override
@@ -127,7 +135,7 @@ public class TambahInstruktur extends AppCompatActivity implements View.OnClickL
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(TambahInstruktur.this, "pesan :" + s,
+                Toast.makeText(TambahInstruktur.this, "" + s,
                         Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(TambahInstruktur.this, MainActivity.class);
                 myIntent.putExtra("keyName", "instruktur");
