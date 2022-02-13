@@ -44,24 +44,24 @@ public class MainActivity extends AppCompatActivity {
         initView();
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.search_menu, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        final Fragment[] fragments = {null};
-//        switch (item.getItemId()){
-//            case R.id.search_action:
-//                fragments[0] = new PencarianFragment();
-//                getSupportActionBar().setTitle("Search Participant");
-//                callFragment(fragments[0]);
-//                break;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        final Fragment[] fragments = {null};
+        switch (item.getItemId()){
+            case R.id.toolbar_search_peserta:
+                fragments[0] = new PencarianPesertaFragment();
+                getSupportActionBar().setTitle("Search Peserta");
+                callFragment(fragments[0]);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
     private void initView() {
