@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 
 public class PencarianInstrukturFragment extends Fragment implements View.OnClickListener {
 
-    private String JSON_STRING;
+    private String JSON_STRING, cari;
     private ProgressDialog loading;
     private EditText search_nama_ins;
     private Button button_search;
@@ -122,9 +123,25 @@ public class PencarianInstrukturFragment extends Fragment implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        if (v == button_search){
+        cari = search_nama_ins.getText().toString().trim();
+        if (cari.equals("")) {
+            alertMessage();
+        } else {
             getJsonData();
         }
+
+    }
+
+    private void alertMessage() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Message");
+        builder.setMessage("Masukan Data Yang Akan Dicari");
+        builder.setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_alert));
+        builder.setCancelable(false);
+        builder.setNegativeButton("Ok", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
     }
 }
