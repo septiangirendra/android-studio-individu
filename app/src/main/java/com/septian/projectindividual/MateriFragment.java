@@ -50,7 +50,7 @@ public class MateriFragment extends Fragment implements MainActivity.OnBackPress
 
         // Custom Action Bar
         ActionBar customActionBar = ((MainActivity) getActivity()).getSupportActionBar();
-        customActionBar.setTitle("Data Instruktur");
+        customActionBar.setTitle("Data Materi");
 
         //penanganan List View
         materiBinding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
